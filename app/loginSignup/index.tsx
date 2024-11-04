@@ -3,10 +3,13 @@
 //
 import React from "react";
 
-import { Image, StyleSheet, View, Button } from "react-native";
+import { StyleSheet, View, Button, Text, TouchableOpacity } from "react-native";
 import { Stack, router } from "expo-router";
 
 import { RootView } from "@/components/Container";
+
+import { colors } from "@/styles/globalColors";
+import { fonts } from "@/styles/globalFonts";
 
 const LOGO = require("@/assets/images/crayon.png");
 
@@ -14,16 +17,15 @@ const LoginSignup = () => {
   return (
     <RootView viewStyle={styles.container}>
       <Stack.Screen options={{ headerShown: false }} />
-      <Image source={LOGO} style={styles.image} />
 
-      <Button
-        title="로그인"
-        onPress={() => router.push("/loginSignup/Login")}
-      />
-      <Button
-        title="회원가입"
-        onPress={() => router.push("/loginSignup/Signup")}
-      />
+      <Text style={styles.title}>모멘토라</Text>
+
+      <TouchableOpacity style={styles.btn} onPress={() => router.push("/loginSignup/Login")}>
+        <Text style={styles.text}>로그인</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.btn} onPress={() => router.push("/loginSignup/Signup")}>
+        <Text style={styles.text}>회원가입</Text>
+      </TouchableOpacity>
     </RootView>
   );
 };
@@ -33,11 +35,38 @@ export default LoginSignup;
 const styles = StyleSheet.create({
   container: {
     alignItems: "center",
-    // paddingTop: 339,
+    paddingTop:330,
   },
-  image: {
-    width: 150,
-    height: 150,
-    resizeMode: "contain",
+  title:{ 
+    fontFamily:fonts.bold,
+    fontSize: 50,
+    marginBottom: 140,
+
+    includeFontPadding: false,
+    textAlignVertical: 'center',
   },
+  btn:{
+    width: 320,
+    height: 67,
+    backgroundColor: colors.beige,
+    borderRadius:100,
+    marginBottom:18,
+
+    alignItems:'center',
+    justifyContent:'center',
+
+    shadowColor: colors.black,
+    shadowOffset: { width: 5, height: 5 },
+    shadowOpacity: 0.2,
+    shadowRadius: 3,
+    elevation: 5,
+  },
+  text:{
+    fontFamily:fonts.bold,
+    fontSize: 30,
+
+    includeFontPadding: false,
+    textAlignVertical: 'center',
+  },
+
 });
