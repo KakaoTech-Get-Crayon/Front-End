@@ -7,6 +7,7 @@ export const colors = {
     beige: '#E1D7C6',
     btn:'#2C4861',
     gray:'#DADADA',
+    bookshelf: '#8F674D',
 
     black: '#000000',
     white: '#FFFFFF',
